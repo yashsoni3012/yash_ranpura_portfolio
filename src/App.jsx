@@ -51,28 +51,27 @@ const Portfolio = () => {
       description: 'Modern e-commerce UI with smooth animations and responsive design using React.js and Tailwind CSS.',
       tech: ['React.js', 'JavaScript', 'Tailwind CSS', 'Framer Motion'],
       features: ['Responsive Design', 'Smooth Animations', 'Custom Components', 'Performance Optimized'],
-      link: 'https://clothing-resha.vercel.app/' // Replace with your actual URL
+      link: 'https://clothing-resha.vercel.app/'
     },
     {
       title: 'APX - Token',
       description: 'Crypto platform frontend with real-time token details and animated interactions.',
       tech: ['React.js', 'Tailwind CSS', 'Framer Motion', 'JavaScript'],
       features: ['Real-time Data', 'Mobile-first Design', 'Scroll Animations', 'Interactive UI'],
-      link: 'https://apx-project.vercel.app/' // Replace with your actual URL
+      link: 'https://apx-project.vercel.app/'
     },
     {
-    title: 'Travelplace',
-    description:
-      'Travel and tourism platform showcasing international, adventure, religious, domestic, and medical tours with packages and destinations.',
-    tech: ['React.js', 'Bootstrap', 'JavaScript', 'MongoDB'],
-    features: [
-      'Tours & Packages',
-      'Destinations Showcase',
-      'User Authentication',
-      'Fully Responsive UI',
-    ],
-    link: 'https://amazing-traveling.netlify.app/', // replace with real link
-  },
+      title: 'Travelplace',
+      description: 'Travel and tourism platform showcasing international, adventure, religious, domestic, and medical tours with packages and destinations.',
+      tech: ['React.js', 'Bootstrap', 'JavaScript', 'MongoDB'],
+      features: [
+        'Tours & Packages',
+        'Destinations Showcase',
+        'User Authentication',
+        'Fully Responsive UI',
+      ],
+      link: 'https://amazing-traveling.netlify.app/',
+    },
   ];
 
   const experience = [
@@ -138,29 +137,49 @@ const Portfolio = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-white"
+              className="md:hidden text-white p-2 rounded-lg bg-purple-600/20 hover:bg-purple-600/40 transition-all duration-300"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-black/95 backdrop-blur-md border-b border-white/10">
-            <div className="px-4 py-2 space-y-2">
-              {['home', 'about', 'experience', 'projects', 'contact'].map((section) => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className="block w-full text-left py-2 px-4 text-white hover:text-purple-300 capitalize transition-colors duration-300"
-                >
-                  {section}
-                </button>
-              ))}
+        {/* Mobile Menu with Animation */}
+        <div className={`md:hidden absolute top-16 left-0 right-0 bg-black/95 backdrop-blur-md border-b border-white/10 transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="px-4 py-2 space-y-2">
+            {['home', 'about', 'experience', 'projects', 'contact'].map((section) => (
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                className={`block w-full text-left py-3 px-4 rounded-lg transition-all duration-300 transform hover:translate-x-2 ${
+                  activeSection === section
+                    ? 'bg-purple-900/30 text-purple-400 font-medium'
+                    : 'text-white hover:text-purple-300 hover:bg-white/5'
+                }`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </button>
+            ))}
+            
+            {/* Social Links in Mobile Menu */}
+            <div className="pt-4 pb-2 border-t border-white/10">
+              <div className="flex justify-center space-x-6">
+                <a href="https://linkedin.com/in/yashranpura" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple-400 transition-colors duration-300 p-2">
+                  <Linkedin size={20} />
+                </a>
+                <a href="https://github.com/yashranpura" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple-400 transition-colors duration-300 p-2">
+                  <Github size={20} />
+                </a>
+                <a href="mailto:yashranpura3@gmail.com" className="text-white hover:text-purple-400 transition-colors duration-300 p-2">
+                  <Mail size={20} />
+                </a>
+                <a href="tel:+919737126164" className="text-white hover:text-purple-400 transition-colors duration-300 p-2">
+                  <Phone size={20} />
+                </a>
+              </div>
             </div>
           </div>
-        )}
+        </div>
       </nav>
 
       {/* Hero Section */}
@@ -336,67 +355,66 @@ const Portfolio = () => {
 
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4">
-  <div className="max-w-6xl mx-auto">
-    <div className={`transition-all duration-1000 ${isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-      <h2 className="text-4xl font-bold text-center text-white mb-16">
-        <FolderOpen className="inline mr-3" />
-        Projects
-      </h2>
+        <div className="max-w-6xl mx-auto">
+          <div className={`transition-all duration-1000 ${isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h2 className="text-4xl font-bold text-center text-white mb-16">
+              <FolderOpen className="inline mr-3" />
+              Projects
+            </h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex flex-col h-full" // Added flex and h-full
-            style={{ animationDelay: `${index * 0.2}s` }}
-          >
-            <h3 className="text-2xl font-bold text-purple-400 mb-3">{project.title}</h3>
-            <p className="text-gray-300 mb-4 leading-relaxed flex-grow">{project.description}</p> {/* Added flex-grow */}
-            
-            <div className="mb-4">
-              <h4 className="text-white font-medium mb-2">Tech Stack:</h4>
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-sm"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="mb-6">
-              <h4 className="text-white font-medium mb-2">Key Features:</h4>
-              <div className="space-y-1">
-                {project.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center space-x-2">
-                    <div className="w-1.5 h-1.5 bg-purple-400 rounded-full" />
-                    <span className="text-gray-300 text-sm">{feature}</span>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, index) => (
+                <div
+                  key={index}
+                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex flex-col h-full"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <h3 className="text-2xl font-bold text-purple-400 mb-3">{project.title}</h3>
+                  <p className="text-gray-300 mb-4 leading-relaxed flex-grow">{project.description}</p>
+                  
+                  <div className="mb-4">
+                    <h4 className="text-white font-medium mb-2">Tech Stack:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-sm"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Button container with mt-auto to push it to the bottom */}
-            <div className="mt-auto"> {/* Added mt-auto */}
-              <a 
-                href={project.link}
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block w-full py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
-              >
-                <ExternalLink size={16} />
-                <span>View Project</span>
-              </a>
+                  <div className="mb-6">
+                    <h4 className="text-white font-medium mb-2">Key Features:</h4>
+                    <div className="space-y-1">
+                      {project.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center space-x-2">
+                          <div className="w-1.5 h-1.5 bg-purple-400 rounded-full" />
+                          <span className="text-gray-300 text-sm">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-auto">
+                    <a 
+                      href={project.link}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block w-full py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+                    >
+                      <ExternalLink size={16} />
+                      <span>View Project</span>
+                    </a>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-black/20">
@@ -439,24 +457,6 @@ const Portfolio = () => {
                 <p className="text-gray-400">Connect with me</p>
               </a>
             </div>
-
-            {/* Languages */}
-            {/* <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                <Languages className="inline mr-3" />
-                Languages
-              </h3>
-              <div className="flex flex-wrap justify-center gap-4">
-                {['English', 'Gujarati', 'Hindi'].map((language) => (
-                  <span
-                    key={language}
-                    className="px-6 py-3 bg-purple-900/30 text-purple-300 rounded-full font-medium"
-                  >
-                    {language}
-                  </span>
-                ))}
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
