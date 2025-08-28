@@ -14,7 +14,7 @@ const Portfolio = () => {
             ...prev,
             [entry.target.id]: entry.isIntersecting
           }));
-          
+
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
           }
@@ -116,18 +116,17 @@ const Portfolio = () => {
                 Yash Ranpura
               </span>
             </div>
-            
+
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {['home', 'about', 'experience', 'projects', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`capitalize transition-all duration-300 ${
-                    activeSection === section
+                  className={`capitalize transition-all duration-300 ${activeSection === section
                       ? 'text-purple-400 border-b-2 border-purple-400'
                       : 'text-white hover:text-purple-300'
-                  }`}
+                    }`}
                 >
                   {section}
                 </button>
@@ -151,16 +150,15 @@ const Portfolio = () => {
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`block w-full text-left py-3 px-4 rounded-lg transition-all duration-300 transform hover:translate-x-2 ${
-                  activeSection === section
+                className={`block w-full text-left py-3 px-4 rounded-lg transition-all duration-300 transform hover:translate-x-2 ${activeSection === section
                     ? 'bg-purple-900/30 text-purple-400 font-medium'
                     : 'text-white hover:text-purple-300 hover:bg-white/5'
-                }`}
+                  }`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
             ))}
-            
+
             {/* Social Links in Mobile Menu */}
             <div className="pt-4 pb-2 border-t border-white/10">
               <div className="flex justify-center space-x-6">
@@ -195,7 +193,7 @@ const Portfolio = () => {
               MERN Stack Developer
             </h2>
             <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Building dynamic web applications with MongoDB, Express.js, React.js, and Node.js. 
+              Building dynamic web applications with MongoDB, Express.js, React.js, and Node.js.
               Passionate about creating seamless user experiences with modern technologies.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -213,7 +211,7 @@ const Portfolio = () => {
               </button>
             </div>
           </div>
-          
+
           <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
             <ChevronDown className="text-white" size={32} />
           </div>
@@ -228,16 +226,16 @@ const Portfolio = () => {
               <User className="inline mr-3" />
               About Me
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  MERN Stack Developer with 1 year of experience in developing dynamic web applications. 
-                  I specialize in building RESTful APIs, integrating NoSQL databases, and implementing 
+                  MERN Stack Developer with 1 year of experience in developing dynamic web applications.
+                  I specialize in building RESTful APIs, integrating NoSQL databases, and implementing
                   secure authentication using JWT and OAuth.
                 </p>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  Currently pursuing iMSC-IT at GLS University Ahmedabad, I'm passionate about 
+                  Currently pursuing iMSC-IT at GLS University Ahmedabad, I'm passionate about
                   full-stack development with expertise in React hooks, Redux, and asynchronous JavaScript.
                 </p>
                 <div className="flex space-x-4">
@@ -309,7 +307,7 @@ const Portfolio = () => {
                       {exp.period}
                     </span>
                   </div>
-                  
+
                   <div className="space-y-2">
                     {exp.responsibilities.map((resp, idx) => (
                       <div key={idx} className="flex items-start space-x-3">
@@ -328,7 +326,7 @@ const Portfolio = () => {
                 <GraduationCap className="inline mr-3" />
                 Education
               </h3>
-              
+
               <div className="grid md:grid-cols-2 gap-6">
                 {education.map((edu, index) => (
                   <div
@@ -337,9 +335,8 @@ const Portfolio = () => {
                   >
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="text-xl font-bold text-purple-400">{edu.degree}</h4>
-                      <span className={`px-3 py-1 rounded-full text-sm ${
-                        edu.status === 'Current' ? 'bg-green-900/30 text-green-400' : 'bg-blue-900/30 text-blue-400'
-                      }`}>
+                      <span className={`px-3 py-1 rounded-full text-sm ${edu.status === 'Current' ? 'bg-green-900/30 text-green-400' : 'bg-blue-900/30 text-blue-400'
+                        }`}>
                         {edu.status}
                       </span>
                     </div>
@@ -371,7 +368,7 @@ const Portfolio = () => {
                 >
                   <h3 className="text-2xl font-bold text-purple-400 mb-3">{project.title}</h3>
                   <p className="text-gray-300 mb-4 leading-relaxed flex-grow">{project.description}</p>
-                  
+
                   <div className="mb-4">
                     <h4 className="text-white font-medium mb-2">Tech Stack:</h4>
                     <div className="flex flex-wrap gap-2">
@@ -399,9 +396,9 @@ const Portfolio = () => {
                   </div>
 
                   <div className="mt-auto">
-                    <a 
+                    <a
                       href={project.link}
-                      target="_blank" 
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
                     >
@@ -418,12 +415,12 @@ const Portfolio = () => {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-black/20">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto">
           <div className={`transition-all duration-1000 ${isVisible.contact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-4xl font-bold text-white mb-8">
+            <h2 className="text-4xl font-bold text-white mb-8 text-center">
               Get In Touch
             </h2>
-            <p className="text-gray-300 text-lg mb-12 max-w-2xl mx-auto">
+            <p className="text-gray-300 text-lg mb-12 max-w-2xl mx-auto text-center">
               I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
             </p>
 
@@ -456,6 +453,61 @@ const Portfolio = () => {
                 <h3 className="text-white font-medium mb-2">LinkedIn</h3>
                 <p className="text-gray-400">Connect with me</p>
               </a>
+            </div>
+
+            {/* Message Form */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Send me a message</h3>
+              <form className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-gray-300 mb-2">Your Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                      placeholder="Enter your name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-gray-300 mb-2">Your Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="subject" className="block text-gray-300 mb-2">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                    placeholder="What is this regarding?"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-gray-300 mb-2">Your Message</label>
+                  <textarea
+                    id="message"
+                    rows="5"
+                    className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                    placeholder="Type your message here..."
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+                >
+                  <Mail size={20} />
+                  <span>Send Message</span>
+                </button>
+              </form>
             </div>
           </div>
         </div>
