@@ -441,7 +441,7 @@ const Portfolio = () => {
             </div>
 
             {/* Languages */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8">
+            {/* <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8">
               <h3 className="text-2xl font-bold text-white mb-6">
                 <Languages className="inline mr-3" />
                 Languages
@@ -456,7 +456,7 @@ const Portfolio = () => {
                   </span>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
