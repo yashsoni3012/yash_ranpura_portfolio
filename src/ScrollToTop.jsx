@@ -1,12 +1,17 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+// // src/components/ScrollToTop.js
+// import { useEffect } from 'react';
+// import { useLocation } from 'react-router-dom';
 
-export default function ScrollToTop() {
-  const { pathname } = useLocation();
+// const ScrollToTop = () => {
+//   // Extracts the `pathname` from the location object.
+//   const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]); // run whenever route changes
+//   // Automatically scrolls to the top whenever the `pathname` changes.
+//   useEffect(() => {
+//     window.scrollTo(0, 0);
+//   }, [pathname]); // This effect runs every time the `pathname` changes.
 
-  return null;
-}
+//   return null; // This component doesn't render anything.
+// };
+
+// export default ScrollToTop;
